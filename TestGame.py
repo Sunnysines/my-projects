@@ -1,3 +1,10 @@
+import os
+
+os.system("cls")
+def refresh():
+    os.system("cls")
+
+
 def main_menu():
     for i in range(1,15):
         if i%2 == 0:
@@ -30,28 +37,51 @@ def main_menu():
     print("  |____________________________________________________________________________________________|")
     a = input("  Choose an option: ") 
     if a == "1":
+        refresh()
         Game()
-    if a == "2":
+    elif a == "2":
+        refresh()
         options()
-    if a == "3":
+    elif a == "3":
         exit()
 
 #--------------------------------------------------------------------------------------------------
 opt = "EASY"
 def options():
     global opt
+    global dif_c
+    print("""                                     |OPTIONS|
+                             HERE YOU CAN CHANGE THE DIFFICULTY LEVEL OF THE GAME.
+                              choose any one of these.{easy-1,medium-2,hard-3} 
+                            if you choose anything else it will be set to default(easy mode).
+    """)
     diffculty = input("Please select you diffculty: ")
     if diffculty == "1":
          opt = "EASY"
-         print("you have selected easy level")
+         print("you have selected easy level :)")
+         dif_c = "Easy"
+         refresh()
+         intro()
+         main_menu()
     elif diffculty == "2":
          opt = "NORMAL"
-         print("you have selected normal level")
+         dif_c = "Normal"
+         print("you have selected normal level :|")
+         refresh()
+         intro()
+         main_menu()
     elif diffculty == "3":
          opt = "HARD"
-         print("you have selected hard level")
+         dif_c = "HARD!"
+         print("you have selected hard level :[")
+         refresh()
+         intro()
+         main_menu()
     else:
         print("Difficulty is set to default(EASY)")
+        refresh()
+        intro()
+        main_menu()
  #--------------------------------------------------------------------------------------------------       
 def easy():
     import random as r
@@ -76,10 +106,15 @@ def easy():
     """)
     g = input("by the way do you wanna play one more time?(y/n):")
     if g == "y":
+        refresh()
         easy()
     elif g == "n":
+        refresh()
+        intro()
         main_menu()
     else:
+        refresh()
+        intro()
         main_menu()
 #----------------------------------------------------------------------------------------------
 def normal():
@@ -106,10 +141,14 @@ def normal():
     """)
     g = input("by the way do you wanna play one more time?(y/n):")
     if g == "y":
-        easy()
+        normal()
     elif g == "n":
+        refresh()
+        intro()
         main_menu()
     else:
+        refresh()
+        intro()
         main_menu()
 #----------------------------------------------------------------------------------------------
 def hard():
@@ -133,44 +172,49 @@ def hard():
     """)
     g = input("by the way do you wanna play one more time?(y/n):")
     if g == "y":
-        easy()
+        hard()
     elif g == "n":
+        refresh()
+        intro()
         main_menu()
     else:
+        refresh()
+        intro()
         main_menu()
 
 #----------------------------------------------------------------------------------------------
 def Game():
-    print("welcome to the game i hope that, you know how to play :)")
+    print("welcome to the game i hope that, you know how to play :),difficulty "+dif_c)
     print("lets start/, ;) ")
     if opt == "EASY":
         easy()
-    if opt == "NORMAL":
+    elif opt == "NORMAL":
         normal()
-    if opt == "HARD":
+    elif opt == "HARD":
         hard()
+def intro():
 
-print("""  ______________________________________________________________________________________________  """)
-print("""  |                                                                                            |  """)
-print("""  |         * * * *     *       *     * * * *     * * * *     * * * *                *         |  """)
-print("""  |         *           *       *     *          *           *                      * *        |  """)
-print("""  |         *   * **    *       *     * * * *     * * * *     * * * *              * * *       |  """)
-print("""  |         *   *  *    *       *     *                  *            *           *     *      |  """)
-print("""  |         ****   *    * * * * *     * * * *     * * * *     * * * *            *       *     |  """)
-print("""  |                 9                           45                       12        0           |  """)
-print("""  |       1                  59    3                       56                                  |  """)
-print("""  |           2       6                       47                       3       1               |  """)
-print("""  |                                                     20                                     |  """)
-print("""  |   25    *     *    *       *    *       *    * * * *      * * * *     * * * *    19        |  """)
-print("""  |         * *   *    *       *    * *   * *    *       *    *           *      *             |  """)
-print("""  |         *  *  *    *       *    *   *   *    * * * *      * * * *     * *  * *             |  """)
-print("""  |         *   * *    *       *    *       *    *       *    *           *   *                |  """)
-print("""  |         *    **    * * * * *    *       *    * * * *      * * * *     *     *              |  """)
-print("""  |                                                                                            |  """)
-print("""  |                                                                                            |  """)
-print("""  |____________________________________________________________________________________________|  """)
-
-
+    print("""  ______________________________________________________________________________________________  """)
+    print("""  |                                                                                            |  """)
+    print("""  |         * * * *     *       *     * * * *     * * * *     * * * *                *         |  """)
+    print("""  |         *           *       *     *          *           *                      * *        |  """)
+    print("""  |         *   * **    *       *     * * * *     * * * *     * * * *              * * *       |  """)
+    print("""  |         *   *  *    *       *     *                  *            *           *     *      |  """)
+    print("""  |         ****   *    * * * * *     * * * *     * * * *     * * * *            *       *     |  """)
+    print("""  |                 9                           45                       12        0           |  """)
+    print("""  |       1                  59    3                       56                                  |  """)
+    print("""  |           2       6                       47                       3       1               |  """)
+    print("""  |                                                     20                                     |  """)
+    print("""  |   25    *     *    *       *    *       *    * * * *      * * * *     * * * *    19        |  """)
+    print("""  |         * *   *    *       *    * *   * *    *       *    *           *      *             |  """)
+    print("""  |         *  *  *    *       *    *   *   *    * * * *      * * * *     * *  * *             |  """)
+    print("""  |         *   * *    *       *    *       *    *       *    *           *   *                |  """)
+    print("""  |         *    **    * * * * *    *       *    * * * *      * * * *     *     *              |  """)
+    print("""  |                                                                                            |  """)
+    print("""  |                                                                                            |  """)
+    print("""  |____________________________________________________________________________________________|  """)
+intro()
+dif_c = "Easy"
 b = "|main menu|"
 c = "play (press 1 to play)"
 d = "options (press 2 to go to settings)"
